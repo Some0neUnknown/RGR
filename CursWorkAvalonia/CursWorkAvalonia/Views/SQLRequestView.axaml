@@ -1,0 +1,121 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="1000" d:DesignHeight="600"
+			 	Width="1000" Height="600"
+             x:Class="CursWorkAvalonia.Views.SQLRequestView">
+
+	<Grid  RowDefinitions="18*,*,*,*" ColumnDefinitions="*">
+					<ScrollViewer   Grid.Column="0" Grid.Row="0" VerticalScrollBarVisibility="Auto">
+						<ItemsControl  Items="{Binding $parent[Window].DataContext.Requests}">
+							<ItemsControl.ItemTemplate>
+								<DataTemplate>
+							      <Expander Header="{Binding Name}">
+									<Grid Background="WhiteSmoke" ColumnDefinitions="*,*,*,*,*" RowDefinitions="*,*,*,*">
+										<TextBox   Grid.Row="0" Grid.Column="2" Watermark="Введите название запроса" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Text="{Binding Name}" Name="Head0"     ></TextBox>
+										<TextBlock Grid.Column="0" Grid.Row="1" FontSize="16" TextAlignment="Center" > SELECT </TextBlock>
+									<ComboBox    Grid.Column="1" Grid.Row="1" SelectedItem="{Binding Field1}">
+										<ComboBoxItem>*</ComboBoxItem>
+										<ComboBoxItem>NhlscoresId</ComboBoxItem>
+										<ComboBoxItem>Points</ComboBoxItem>
+										<ComboBoxItem>GoalFor</ComboBoxItem>
+										<ComboBoxItem>GoalAg</ComboBoxItem>
+										<ComboBoxItem>TeamId</ComboBoxItem>
+										<ComboBoxItem>PlayerId</ComboBoxItem>
+										<ComboBoxItem>Name</ComboBoxItem>
+										<ComboBoxItem>Age</ComboBoxItem>
+										<ComboBoxItem>StaticticId</ComboBoxItem>
+										<ComboBoxItem>GamePlayed</ComboBoxItem>
+										<ComboBoxItem>Satt</ComboBoxItem>
+										<ComboBoxItem>Pos</ComboBoxItem>
+										<ComboBoxItem>TimeOnIce</ComboBoxItem>
+										<ComboBoxItem>TeamStatisticId</ComboBoxItem>
+										<ComboBoxItem>Win</ComboBoxItem>
+										<ComboBoxItem>Lose</ComboBoxItem>
+									</ComboBox>
+										<ComboBox    Grid.Column="2" Grid.Row="1" SelectedItem="{Binding Field2}">
+											<ComboBoxItem>*</ComboBoxItem>
+											<ComboBoxItem>NhlscoresId</ComboBoxItem>
+											<ComboBoxItem>Points</ComboBoxItem>
+											<ComboBoxItem>GoalFor</ComboBoxItem>
+											<ComboBoxItem>GoalAg</ComboBoxItem>
+											<ComboBoxItem>TeamId</ComboBoxItem>
+											<ComboBoxItem>PlayerId</ComboBoxItem>
+											<ComboBoxItem>Name</ComboBoxItem>
+											<ComboBoxItem>Age</ComboBoxItem>
+											<ComboBoxItem>StaticticId</ComboBoxItem>
+											<ComboBoxItem>GamePlayed</ComboBoxItem>
+											<ComboBoxItem>Satt</ComboBoxItem>
+											<ComboBoxItem>Pos</ComboBoxItem>
+											<ComboBoxItem>TimeOnIce</ComboBoxItem>
+											<ComboBoxItem>TeamStatisticId</ComboBoxItem>
+											<ComboBoxItem>Win</ComboBoxItem>
+											<ComboBoxItem>Lose</ComboBoxItem>
+										</ComboBox>
+										<TextBlock Grid.Row="1" Grid.Column="3" FontSize="16" TextAlignment="Center">FROM</TextBlock>
+										<ComboBox Grid.Row="1" Grid.Column="4" SelectedItem="{Binding TableName}" >
+												<ComboBoxItem>Nhlscore</ComboBoxItem>
+												<ComboBoxItem>Player</ComboBoxItem>
+												<ComboBoxItem>PlayerStatistic</ComboBoxItem>
+												<ComboBoxItem>Team</ComboBoxItem>
+												<ComboBoxItem>TeamStatistic</ComboBoxItem>
+										</ComboBox>
+										<ComboBox Grid.Row="2" Grid.Column="0" SelectedItem="{Binding Additions}">
+											<ComboBoxItem>WHERE</ComboBoxItem>
+											<ComboBoxItem>GROUP BY</ComboBoxItem>
+											<ComboBoxItem>JOIN </ComboBoxItem>
+										</ComboBox>
+										<ComboBox    Grid.Column="1" Grid.Row="2" SelectedItem="{Binding Field3}">
+											<ComboBoxItem>*</ComboBoxItem>
+											<ComboBoxItem>NhlscoresId</ComboBoxItem>
+											<ComboBoxItem>Points</ComboBoxItem>
+											<ComboBoxItem>GoalFor</ComboBoxItem>
+											<ComboBoxItem>GoalAg</ComboBoxItem>
+											<ComboBoxItem>TeamId</ComboBoxItem>
+											<ComboBoxItem>PlayerId</ComboBoxItem>
+											<ComboBoxItem>Name</ComboBoxItem>
+											<ComboBoxItem>Age</ComboBoxItem>
+											<ComboBoxItem>StaticticId</ComboBoxItem>
+											<ComboBoxItem>GamePlayed</ComboBoxItem>
+											<ComboBoxItem>Satt</ComboBoxItem>
+											<ComboBoxItem>Pos</ComboBoxItem>
+											<ComboBoxItem>TimeOnIce</ComboBoxItem>
+											<ComboBoxItem>TeamStatisticId</ComboBoxItem>
+											<ComboBoxItem>Win</ComboBoxItem>
+											<ComboBoxItem>Lose</ComboBoxItem>
+										</ComboBox>
+										<ComboBox Grid.Row="2" Grid.Column="3" >
+											<ComboBoxItem>&gt;</ComboBoxItem>
+											<ComboBoxItem>&lt;</ComboBoxItem>
+											<ComboBoxItem>=</ComboBoxItem>
+										</ComboBox>
+										<ComboBox Grid.Row="2" Grid.Column="4">
+											<ComboBoxItem>request1</ComboBoxItem>
+											<ComboBoxItem>request2</ComboBoxItem>
+											<ComboBoxItem>request3</ComboBoxItem>
+										</ComboBox>
+										<Button Grid.Column="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.ColumnSpan="5" Grid.Row="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" CommandParameter="{Binding}" Command="{Binding $parent[Window].DataContext.DeleteRequest}">
+											Удалить
+										</Button>
+									</Grid>
+								</Expander>
+							  </DataTemplate>
+						 </ItemsControl.ItemTemplate>
+						</ItemsControl>
+					</ScrollViewer>
+		
+		
+		
+		<Button Command="{Binding $parent[Window].DataContext.CreateRequest}" Grid.Column="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.ColumnSpan="2" Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+			Создать
+		</Button>
+		
+		<Button Command="{Binding $parent[Window].DataContext.SQLRequestRun}" Grid.Column="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.ColumnSpan="2" Grid.Row="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+			Запустить
+		</Button>
+		
+	</Grid>
+
+</UserControl>
+
